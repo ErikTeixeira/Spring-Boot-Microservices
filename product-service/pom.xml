@@ -67,6 +67,26 @@
 			<artifactId>mongodb</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+	<!--	biblioteca popular para realizar testes de APIs em Java.
+			Ela permite que você escreva testes de integração para serviços web,
+			especialmente APIs REST,	-->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>5.3.2</version>
+		</dependency>
+
+
+		<!-- Dependência do Hamcrest, usada para realizar as asserções e validações
+			em testes (como comparações de valores em respostas) -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest</artifactId>
+			<version>2.2</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
 
 	<build>
