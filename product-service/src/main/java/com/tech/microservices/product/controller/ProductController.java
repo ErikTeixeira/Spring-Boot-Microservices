@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/product/")
+@RequestMapping("/api/product")
 // Do lombok - faz a mesma coisa do autowired, mas não precisa colocar em todos
 @RequiredArgsConstructor
 public class ProductController {
