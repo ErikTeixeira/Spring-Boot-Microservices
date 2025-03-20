@@ -1,0 +1,15 @@
+services:
+  mysql:
+    image: mysql:8.3.0
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql  #Persiste os dados do MySQL na pasta ./mysql do host
+      #Isso garante que os dados do banco não sejam perdidos ao recriar o contêiner
+      # rodar no terminal -- docker compose up -d
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql   #Criar o banco de dados
+      #Copia o arquivo init.sql do host para o diretório de inicialização do MySQL no contêiner
+      # O MySQL executará este script automaticamente na primeira inicialização do banco
