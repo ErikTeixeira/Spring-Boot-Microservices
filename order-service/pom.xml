@@ -40,6 +40,8 @@
 		</dependency>
 
 		<!-- Flyway para versionamento e migração de banco de dados -->
+		<!--	as migrations vão ficar na pasta db.migration no resources	-->
+		<!-- Tem a convenção de nome = V<number>__<name>.sql -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
@@ -90,12 +92,31 @@
 			<artifactId>mysql</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+		<!--	biblioteca popular para realizar testes de APIs em Java.
+			Ela permite que você escreva testes de integração para serviços web,
+			especialmente APIs REST,	-->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>5.3.2</version>
+		</dependency>
+
+
+		<!-- Dependência do Hamcrest, usada para realizar as asserções e validações
+			em testes (como comparações de valores em respostas) -->
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest</artifactId>
+			<version>2.2</version>
+			<scope>test</scope>
+		</dependency>
+
 	</dependencies>
+
 
 	<build>
 		<plugins>
-
-			<!-- Plugin do Maven para compilar o código Java -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -104,22 +125,9 @@
 						<path>
 							<groupId>org.projectlombok</groupId>
 							<artifactId>lombok</artifactId>
+							<version>1.18.36</version>
 						</path>
 					</annotationProcessorPaths>
-				</configuration>
-			</plugin>
-
-			<!-- Plugin para empacotar a aplicação Spring Boot como um arquivo executável -->
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
 				</configuration>
 			</plugin>
 		</plugins>
